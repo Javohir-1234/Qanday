@@ -1,1 +1,4 @@
 aiogram
+google-cloud-vision
+requests
+pillow
