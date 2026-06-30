@@ -1,4 +1,4 @@
 aiogram
-google-cloud-vision
 requests
-pillow
+google-cloud-vision
+python-dotenv
