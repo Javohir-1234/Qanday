@@ -757,4 +757,5 @@ async def create_song_start(message: Message, state: FSMContext):
         parse_mode="HTML",
         reply_markup=get_song_type_menu()
     )
-    await state.set_state(C
+    await state.set_state(CreateSong.choosing_type)  # qavs yopilishi shart
+
