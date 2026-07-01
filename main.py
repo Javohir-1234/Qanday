@@ -12,7 +12,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
 # --- SOZLAMALAR ---
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "8821690561:AAHcRLiZonoc2wU5OQKym7c8MrbNgRHN-20")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "8955178544:AAEP6rrwgju-bbga_3M8guxJ_js1vjLdk50")
 ADMIN_ID = 5492502957
 ADMIN_USERNAME = "@Javoh_1hacker"
 CHANNEL_USERNAME = "@qoshiqyaratish"
