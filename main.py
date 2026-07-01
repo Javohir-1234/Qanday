@@ -32,8 +32,8 @@ except ImportError:
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 ADMIN_ID = 5492502957
 ADMIN_USERNAME = "@Javoh_1hacker"
-CHANNEL_USERNAME = "@SizningKanalingiz"  # ⚠️ Bu yerga haqiqiy kanal username-ni kiriting (boshiga @ bilan)
-CHANNEL_LINK = "https://t.me/SizningKanalingiz"  # ⚠️ Bu yerga haqiqiy kanal havolasini kiriting
+CHANNEL_USERNAME = "@qoshiqyaratish"  # ⚠️ Bu yerga haqiqiy kanal username-ni kiriting (boshiga @ bilan)
+CHANNEL_LINK = "https://t.me/qoshiqyaratish"  # ⚠️ Bu yerga haqiqiy kanal havolasini kiriting
 SONG_PRICE_SHORT = 5000
 SONG_PRICE_FULL = 15000
 SECRET_CODE = "J1a2v3o4h5i6r7"
