@@ -34,10 +34,10 @@ ADMIN_ID = 5492502957
 ADMIN_USERNAME = "@Javoh_1hacker"
 CHANNEL_USERNAME = "@qoshiqyaratish"  
 CHANNEL_LINK = "https://t.me/qoshiqyaratish"  
-SONG_PRICE_SHORT = 5000
-SONG_PRICE_FULL = 15000
+SONG_PRICE_SHORT = 10000
+SONG_PRICE_FULL = 20000
 SECRET_CODE = "J1a2v3o4h5i6r7"
-SECRET_BONUS = 10000
+SECRET_BONUS = 100000
 GOOGLE_CREDENTIALS_FILE = "horizontal-data-501009-n0-fbb206898628.json"
 
 if not BOT_TOKEN:
@@ -311,8 +311,8 @@ def get_main_menu(user_id):
 
 def get_song_type_menu():
     return ReplyKeyboardMarkup(keyboard=[
-        [KeyboardButton(text=f"⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm")],
-        [KeyboardButton(text=f"🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm")]
+        [KeyboardButton(text=f"⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm")],
+        [KeyboardButton(text=f"🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm")]
     ], resize_keyboard=True)
 
 def get_genre_menu():
@@ -377,8 +377,8 @@ async def send_start_message(chat_id, user_id, fullname, username):
         "📝 Har qanday mavzuda mukammal va ma'noli <b>qo'shiq matnlari</b> yarata olaman.\n"
         "👤 Istalgan <b>ismlarga atab</b> maxsus va kreativ treklar tayyorlab beraman!\n"
         "🎵 Pop, Rep, Bass va boshqa janrlarda professional kuylar bastalayman.\n\n"
-        f"📌 Narxlar:\n⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm\n"
-        f"🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
+        f"📌 Narxlar:\n⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm\n"
+        f"🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
     )
     if is_new:
         text += "🎉 Xush kelibsiz! Qo'shiq buyurtma berish uchun avval balansingizni to'ldiring.\n\n👇 Quyidagi menyudan foydalanish:"
@@ -443,7 +443,7 @@ async def balance_cmd(message: Message, state: FSMContext):
     text = f"💰 Sizning balansingiz: <b>{balance:,} so'm</b>"
     if pending > 0:
         text += f"\n⏳ Kutilayotgan to'lov: {pending:,} so'm"
-    text += f"\n\n📌 Narxlar:\n⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm\n🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm"
+    text += f"\n\n📌 Narxlar:\n⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm\n🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm"
     await message.answer(text, parse_mode="HTML")
 
 @dp.message(F.text == "💳 Pul kiritish")
@@ -699,7 +699,7 @@ async def song_samples_cmd(message: Message, state: FSMContext):
             await message.answer(f"🎵 <b>{title}</b>\n{description}\n\n<i>(Audio hali qo'shilmagan)</i>", parse_mode="HTML")
     await message.answer(
         f"🎵 O'zingizga qo'shiq buyurtma berish uchun <b>«🎵 Qo'shiq yaratish»</b> tugmasini bosing!\n\n"
-        f"📌 Narxlar:\n⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm\n🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm",
+        f"📌 Narxlar:\n⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm\n🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm",
         parse_mode="HTML", reply_markup=get_main_menu(message.from_user.id)
     )
 
@@ -715,16 +715,16 @@ async def create_song_start(message: Message, state: FSMContext):
         await message.answer(
             f"⚠️ Balansingiz yetarli emas.\n\n"
             f"💰 Sizning balansingiz: <b>{balance:,} so'm</b>\n\n"
-            f"📌 Narxlar:\n⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm\n"
-            f"🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
+            f"📌 Narxlar:\n⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm\n"
+            f"🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
             "Avval <b>💳 Pul kiritish</b> orqali balansingizni to'ldiring.",
             parse_mode="HTML"
         )
         return
     await message.answer(
         f"🎵 <b>Qo'shiq turini tanlang:</b>\n\n"
-        f"⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm\n"
-        f"🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
+        f"⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm\n"
+        f"🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm\n\n"
         f"💰 Sizning balansingiz: <b>{balance:,} so'm</b>",
         parse_mode="HTML", reply_markup=get_song_type_menu()
     )
@@ -736,10 +736,10 @@ async def process_song_type(message: Message, state: FSMContext):
         await state.clear()
         await message.answer("Jarayon bekor qilindi.", reply_markup=get_main_menu(message.from_user.id))
         return
-    if message.text == f"⚡ 30 soniyalik — {SONG_PRICE_SHORT:,} so'm":
-        price, song_type = SONG_PRICE_SHORT, "30 soniyalik"
-    elif message.text == f"🎶 2-3 daqiqalik — {SONG_PRICE_FULL:,} so'm":
-        price, song_type = SONG_PRICE_FULL, "2-3 daqiqalik"
+    if message.text == f"⚡ 1-2 daqiqalik — {SONG_PRICE_SHORT:,} so'm":
+        price, song_type = SONG_PRICE_SHORT, "1-2 daqiqalik"
+    elif message.text == f"🎶 3 daqiqalik — {SONG_PRICE_FULL:,} so'm":
+        price, song_type = SONG_PRICE_FULL, "3 daqiqalik"
     else:
         await message.answer("Iltimos, quyidagi tugmalardan birini tanlang:", reply_markup=get_song_type_menu())
         return
